@@ -33,7 +33,7 @@ else {
     process.title = 'child.javascript-minifier.com';
     console.log('Worker %s started', process.pid);
     var server = require('./lib/server.js');
-    var port = 3000;
+    var port = process.argv[2] || 3000;
     server.listen(port, function() {
         console.log('Worker %s listening on port %s', process.pid, port);
     });
