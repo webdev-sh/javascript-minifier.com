@@ -1,0 +1,35 @@
+{
+    "name" : "javascript-minifier-com",
+    "description" : "Minify your JavaScript",
+    "version" : "0.1.0",
+    "private" : true,
+
+    "dependencies" : {
+        "express"       : "3.1.x",
+        "jade"          : "0.28.x",
+        "connect-flake" : "0.1.x",
+        "log2"          : "0.1.x",
+        "uglify-js"     : "2.2.x"
+    },
+
+    "main": "app.js",
+    "author" : {
+        "name"  : "Andrew Chilton",
+        "email" : "chilts@appsattic.com",
+        "url"   : "http://chilts.org/blog/"
+    },
+    "homepage" : "https://github.com/appsattic/javascript-minifier-com/",
+    "repository" : {
+        "type" : "git",
+        "url"  : "git://github.com/appsattic/javascript-minifier-com.git"
+    },
+   "bugs" : {
+        "url" : "http://github.com/appsattic/javascript-minifier-com/issues"
+    },
+
+    "scripts": {
+        "start" : "node app.js"
+    },
+
+    "license": "Copyright 2013 Apps Attic Lts. All Rights Reserved."
+}

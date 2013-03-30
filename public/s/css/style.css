@@ -1,0 +1,68 @@
+/* ------------------------------------------------------------------------- */
+/* layout */
+
+#main {
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+/* ------------------------------------------------------------------------- */
+
+/* topbar */
+.navbar-inverse .brand {
+    color: white;
+}
+
+.navbar p {
+    color: #808080;
+    font-weight: strong;
+    padding: 10px;
+    margin: 0;
+}
+
+#ads img {
+    padding: 10px;
+}
+
+/* ------------------------------------------------------------------------- */
+
+#input, #output {
+    height: 310px;
+}
+
+/* ------------------------------------------------------------------------- */
+
+/* footer */
+#footer {
+    background-color: whiteSmoke;
+    border-top: 1px solid #ddd;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    z-index: 10000;
+}
+
+/* ------------------------------------------------------------------------- */
+
+/* general */
+pre {
+    overflow: auto;
+}
+
+.c {
+    text-align: center;
+}
+
+/* ------------------------------------------------------------------------- */
+
+
+
+
+#social {
+  margin-top: 8px;
+  float: right;
+}

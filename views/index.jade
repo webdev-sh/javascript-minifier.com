@@ -1,0 +1,59 @@
+extends layout
+
+block content
+  div.row
+    div.span6
+      h3.muted Input
+      form#input-form.form-stacked(method="post", name="f", action="/minify")
+        fieldset
+          div.clearfix
+            label(for="input") Input JavaScript
+            div.input
+              textarea#input.span6(name="input",rows="15",wrap="off",autofocus="autofocus")
+          div.actions
+            button#minify.btn.btn-primary(type="submit") Minify
+            |  
+            button#download.btn(type="button",disabled="disabled") Download as File
+            |  
+            button#raw.btn(type="button",disabled="disabled") RAW
+            |  
+            input#clear.btn(type="reset",value="Clear")
+
+    div.span6
+      h3.muted Output
+      form#output-form.form-stacked(name="f")
+        fieldset
+          div.clearfix
+            label(for="output") Minified JavaScript
+            div.input
+              textarea#output.span6(name="output",rows="15",wrap="soft",disabled="disabled")
+          div.actions
+            button#select.btn(type="button",disabled="disabled") Select All
+
+  h2.muted API
+
+  h3.muted General
+  p.
+    Perform a POST request to <code>http://javascript-minifier.com/raw</code> with the <code>input</code> parameter set
+    to the JavaScript you want to minify.
+  pre.
+    POST http://javascript-minifier.com/raw?input=...
+
+  h3.muted Curl
+  pre.
+    # minimising some JavaScript
+    curl -X POST -s --data-urlencode 'input=p { color : red; }' http://javascript-minifier.com/raw
+
+    # minimising a CSS file (e.g. style.css -> style.min.css)
+    curl -X POST -s --data-urlencode 'input@ready.js' http://javascript-minifier.com/raw > ready.min.js
+
+  h3.muted LWP Request
+  pre.
+    $ lwp-request -m POST http://javascript-minifier.com/raw
+    Please enter content (application/x-www-form-urlencoded) to be POSTed:
+    input=p%20{%20color:%20white;%20}
+    ^D
+
+  p Send me more examples in your programming language.
+
+  p (Ends)
