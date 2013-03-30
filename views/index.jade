@@ -3,11 +3,10 @@ extends layout
 block content
   div.row
     div.span6
-      h3.muted Input
+      h3.muted Input JavaScript
       form#input-form.form-stacked(method="post", name="f", action="/minify")
         fieldset
           div.clearfix
-            label(for="input") Input JavaScript
             div.input
               textarea#input.span6(name="input",rows="15",wrap="off",autofocus="autofocus")
           div.actions
@@ -20,11 +19,10 @@ block content
             input#clear.btn(type="reset",value="Clear")
 
     div.span6
-      h3.muted Output
+      h3.muted Minified Output
       form#output-form.form-stacked(name="f")
         fieldset
           div.clearfix
-            label(for="output") Minified JavaScript
             div.input
               textarea#output.span6(name="output",rows="15",wrap="soft",disabled="disabled")
           div.actions
