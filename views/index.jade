@@ -40,7 +40,7 @@ block content
   h3.muted Curl
   pre.
     # minimising some JavaScript
-    curl -X POST -s --data-urlencode 'input=p { color : red; }' http://javascript-minifier.com/raw
+    curl -X POST -s --data-urlencode 'input=function(){ console.log("Hello, World!"); }()' http://javascript-minifier.com/raw
 
     # minimising a JS file (e.g. ready.js -> ready.min.js)
     curl -X POST -s --data-urlencode 'input@ready.js' http://javascript-minifier.com/raw > ready.min.js
