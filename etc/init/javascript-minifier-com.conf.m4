@@ -32,7 +32,7 @@ script
     exec \
         sudo -E -u __USER__ \
         __NODE__ \
-        __PWD__/server.js 8021 >> /var/log/javascript-minifier-com/javascript-minifier.log
+        __PWD__/app.js 8021 >> /var/log/javascript-minifier-com/javascript-minifier.log
 
 end script
 
