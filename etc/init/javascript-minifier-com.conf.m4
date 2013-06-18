@@ -28,13 +28,11 @@ script
     # quit the script if something goes wrong
     set -e
 
-    # run the webserver as ubuntu
+    # run the webserver as the user
     exec \
-        sudo -E -u ubuntu \
-        /home/ubuntu/.nvm/v0.8.22/bin/node \
-        /home/ubuntu/src/appsattic-javascript-minifier-com/app.js 8021 \
-        >> /var/log/javascript-minifier-com/web-access.log \
-        2>> /var/log/javascript-minifier-com/web-error.log
+        sudo -E -u __USER__ \
+        __NODE__ \
+        __PWD__/server.js 8021 >> /var/log/javascript-minifier-com/javascript-minifier.log
 
 end script
 
