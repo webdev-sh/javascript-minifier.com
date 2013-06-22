@@ -2,15 +2,15 @@
 
 [www.javascript-minifier.com]
 type=redirect
-to=http://javascript-minifier.com/
+to=http://javascript-minifier.com
 
 [ww.javascript-minifier.com]
 type=redirect
-to=http://javascript-minifier.com/
+to=http://javascript-minifier.com
 
 [w.javascript-minifier.com]
 type=redirect
-to=http://javascript-minifier.com/
+to=http://javascript-minifier.com
 
 [javascript-minifier.com]
 type=proxy
@@ -21,7 +21,7 @@ port=8021
 
 [www.localhost.javascript-minifier.com]
 type=redirect
-to=localhost.javascript-minifier.com
+to=http://localhost.javascript-minifier.com
 
 [localhost.javascript-minifier.com]
 type=proxy
