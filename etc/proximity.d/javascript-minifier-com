@@ -2,7 +2,15 @@
 
 [www.javascript-minifier.com]
 type=redirect
-to=javascript-minifier.com
+to=http://javascript-minifier.com/
+
+[ww.javascript-minifier.com]
+type=redirect
+to=http://javascript-minifier.com/
+
+[w.javascript-minifier.com]
+type=redirect
+to=http://javascript-minifier.com/
 
 [javascript-minifier.com]
 type=proxy
