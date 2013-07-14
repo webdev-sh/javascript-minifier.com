@@ -15,7 +15,7 @@ THIS_NODE=`which node`
 
 # install any required packages
 echo "Installing new npm packages ..."
-npm install
+npm install --production
 echo
 
 # minimising assets
