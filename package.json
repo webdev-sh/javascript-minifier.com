@@ -7,7 +7,7 @@
     "dependencies" : {
         "express"       : "3.x",
         "jade"          : "0.35.x",
-        "connect-blog"  : "0.9.x",
+        "connect-blog"  : "0.12.x",
         "log2"          : "*",
         "moment"        : "*",
         "uglify-js"     : "2.4.x"
