@@ -1,0 +1,10 @@
+extends blog
+
+block blogcontent
+
+  h2 Archive : #{blog.thisArchiveMonth[0].meta.moment.format("MMM YYYY")}
+
+  ul
+    for l_post in blog.thisArchiveMonth
+      li #{l_post.meta.moment.format("DD MMM YYYY")} - 
+        a(href="./#{l_post.name}")= l_post.meta.title
