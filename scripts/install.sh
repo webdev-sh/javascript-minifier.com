@@ -32,9 +32,9 @@ curl        \
     http://cssminifier.com/raw > public/s/css/style.min.css
 echo
 
-# set up Proximity
-echo "Setting up Proximity ..."
-sudo cp etc/proximity.d/javascript-minifier-com /etc/proximity.d/
+# set up Proxie
+echo "Setting up Proxie ..."
+sudo cp etc/proxie.d/javascript-minifier-com /etc/proxie.d/
 echo
 
 # set up the server
@@ -56,6 +56,7 @@ echo
 # restart the service
 echo "Restarting service ..."
 sudo service javascript-minifier-com restart
+sudo service proxie restart
 echo
 
 ## ----------------------------------------------------------------------------
