@@ -9,8 +9,9 @@
         "jade"          : "1.1.x",
         "connect-blog"  : "0.12.x",
         "log2"          : "*",
-        "moment"        : "*",
-        "uglify-js"     : "2.4.x"
+        "redis"         : "0.10.x",
+        "uglify-js"     : "2.4.x",
+        "rustle"        : "*"
     },
 
     "main": "app.js",
