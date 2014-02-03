@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h3.muted Stats
+
+  table.table.table-striped(style="table-layout: fixed; width: 50%;")
+    thead
+      tr
+        th Day
+        th.r Home
+        th.r Minify
+        th.r Download
+        th.r Raw
+    tbody
+      for ts in Object.keys(stats).sort()
+        tr
+          td= moment(ts * 1000).format("YYYY-MM-DD")
+          td.r= stats[ts].home || 0
+          td.r= stats[ts].minify || 0
+          td.r= stats[ts].download || 0
+          td.r= stats[ts].raw || 0
+
+  p (Ends)

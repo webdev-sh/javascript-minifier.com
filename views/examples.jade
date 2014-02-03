@@ -1,0 +1,85 @@
+extends layout
+
+block content
+  h3.muted Curl
+  pre.
+    # minifying some JavaScript
+    curl -X POST -s --data-urlencode 'input=console.log( "Hi" );' http://javascript-minifier.com/raw
+
+    # minifying a JavaScript file (e.g. ready.js -> ready.min.js)
+    curl -X POST -s --data-urlencode 'input@ready.js' http://javascript-minifier.com/raw > ready.min.js
+
+  h3.muted Node.js
+  pre.
+    var querystring = require('querystring');
+    var http  = require('http');
+
+    var query = querystring.stringify({
+        input : js
+    });
+
+    var req = http.request(
+        {
+            method   : 'POST',
+            hostname : 'javascript-minifier.com',
+            path     : '/raw',
+        },
+        function(resp) {
+            // if the statusCode isn't what we expect, get out of here
+            if ( resp.statusCode !== 200 ) {
+                console.log('StatusCode=' + resp.statusCode);
+                return;
+            }
+
+            resp.pipe(process.stdout);
+        }
+    );
+    req.on('error', function(err) {
+        throw err;
+    });
+    req.setHeader('Content-Type', 'application/x-www-form-urlencoded');
+    req.setHeader('Content-Length', query.length);
+    req.end(query, 'utf8');
+
+  h3.muted PHP
+  pre.
+    &lt;?php
+        // setup the URL, the JavaScript and the form data
+        $url = 'http://javascript-minifier.com/raw';
+        $js = file_get_contents('./public/s/js/ready.js');
+        $data = array(
+            'input' =&gt; $js,
+        );
+
+        // init the request, set some info, send it and finally close it
+        $ch = curl_init($url);
+
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+        $minified = curl_exec($ch);
+
+        curl_close($ch);
+
+        // output the $minified
+        echo $minified;
+    ?&gt;
+
+  p
+    | Also, Toni Almeida has made a PHP library to easily talk to JavaScript Minifier : 
+    a(href="https://github.com/promatik/PHP-JS-CSS-Minifier") https://github.com/promatik/PHP-JS-CSS-Minifier
+    | .
+
+  h3.muted LWP Request
+  pre.
+    $ lwp-request -m POST http://javascript-minifier.com/raw
+    Please enter content (application/x-www-form-urlencoded) to be POSTed:
+    input=console.log(%20'Hi'%20);
+    ^D
+
+  h3.muted More Languages
+
+  p.
+    I'd love to add more examples in your favourite programming language, so feel free to send them my way. andychilton
+    at that gmail place in the sky.
