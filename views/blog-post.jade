@@ -6,7 +6,7 @@ block blogcontent
   if blog.thisPost.meta.tags
     p(style="float: right;") Tags: 
       for tag in blog.thisPost.meta.tags
-        a.btn.btn-small(href="tag-#{tag}") #{tag}
+        a.btn.btn-default.btn-sm(href="tag-#{tag}") #{tag}
         |  
   p Posted: #{blog.thisPost.meta.moment.fromNow()}
   hr

@@ -2,13 +2,13 @@ extends layout
 
 block content
   div.row
-    div.span6
+    div.col-md-6
       h3.muted Input JavaScript
       form#input-form.form-stacked(method="post", name="f", action="/minify")
         fieldset
           div.clearfix
             div.input
-              textarea#input.span6(name="input",rows="15",wrap="off",autofocus="autofocus",spellcheck="false")
+              textarea#input.col-md-12(name="input",rows="15",wrap="off",autofocus="autofocus",spellcheck="false")
           div.actions
             button#minify.btn.btn-primary(type="submit") Minify
             |  
@@ -18,13 +18,13 @@ block content
             |  
             input#clear.btn(type="reset",value="Clear")
 
-    div.span6
+    div.col-md-6
       h3.muted Minified Output
       form#output-form.form-stacked(name="f")
         fieldset
           div.clearfix
             div.input
-              textarea#output.span6(name="output",rows="15",wrap="soft",disabled="disabled")
+              textarea#output.col-md-12(name="output",rows="15",wrap="soft",disabled="disabled")
           div.actions
             button#select.btn(type="button",disabled="disabled") Select All
 
@@ -32,26 +32,13 @@ block content
 
   h3.muted General
   p.
-    Perform a POST request to <code>http://javascript-minifier.com/raw</code> with the <code>input</code> parameter set
-    to the JavaScript you want to minify.
+    To minify/compress your JavaScript perform a POST request to <code>http://javascript-minifier.com/raw</code> with the
+    <code>input</code> parameter set to the JavaScript you want to minify.
   pre.
     POST http://javascript-minifier.com/raw?input=...
-
-  h3.muted Curl
-  pre.
-    # minimising some JavaScript
-    curl -X POST -s --data-urlencode 'input=$(function() { alert("Hello, World!"); });' http://javascript-minifier.com/raw
-
-    # minimising a JS file (e.g. ready.js -> ready.min.js)
-    curl -X POST -s --data-urlencode 'input@ready.js' http://javascript-minifier.com/raw > ready.min.js
-
-  h3.muted LWP Request
-  pre.
-    $ lwp-request -m POST http://javascript-minifier.com/raw
-    Please enter content (application/x-www-form-urlencoded) to be POSTed:
-    input=%24(function()%20%7B%20alert(%22Hello%2C%20World!%22)%3B%20%7D)%3B
-    ^D
-
-  p Send me more examples in your programming language.
+  p
+    | To see implementations in other languages see the 
+    a(href="/examples" ) Examples
+    |  page.
 
   p (Ends)

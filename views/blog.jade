@@ -1,12 +1,11 @@
 extends layout
 
 block content
-
   .row
-    .span8
+    .col-md-8
       block blogcontent
 
-    .span4
+    .col-md-4
       h2 Latest Posts
       ul
         for post in blog.latest
@@ -27,7 +26,7 @@ block content
       h2 Tags
       p
         for tagName in Object.keys(blog.tagged).sort()
-          a.btn.btn-small(href="tag-#{tagName}") #{tagName} (#{blog.tagged[tagName].length})
+          a.btn.btn-default.btn-sm(href="tag-#{tagName}") #{tagName} (#{blog.tagged[tagName].length})
           |  
 
       h2 Feeds

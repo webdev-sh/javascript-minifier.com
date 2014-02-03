@@ -5,8 +5,8 @@
     "private" : true,
 
     "dependencies" : {
-        "express"       : "3.x",
-        "jade"          : "0.35.x",
+        "express"       : "3.4.x",
+        "jade"          : "1.1.x",
         "connect-blog"  : "0.12.x",
         "log2"          : "*",
         "moment"        : "*",

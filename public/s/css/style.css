@@ -1,33 +1,29 @@
 /* ------------------------------------------------------------------------- */
 /* layout */
 
-#main {
-    margin-top: 50px;
-    margin-bottom: 30px;
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.navbar {
+    margin-bottom: 20px;
 }
 
 /* ------------------------------------------------------------------------- */
 
-/* topbar */
-.navbar-inverse .brand {
-    color: white;
-}
-
-.navbar p {
-    color: #808080;
-    font-weight: strong;
-    padding: 10px;
-    margin: 0;
-}
-
 #ads img {
-    padding: 10px;
+    margin: 20px 20px 20px 0;
 }
 
 /* ------------------------------------------------------------------------- */
 
 #input, #output {
     height: 310px;
+}
+
+.actions {
+    margin-top: 10px;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -55,6 +51,10 @@ pre {
 
 .c {
     text-align: center;
+}
+
+.r, .table th.r, .table td.r {
+    text-align: right;
 }
 
 /* ------------------------------------------------------------------------- */

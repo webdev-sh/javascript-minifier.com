@@ -8,10 +8,10 @@ block blogcontent
     if post.meta.tags
       p(style="float: right;") Tags: 
         for tag in post.meta.tags
-          a.btn.btn-small(href="tag-#{tag}") #{tag}
+          a.btn.btn-default.btn-sm(href="tag-#{tag}") #{tag}
           |  
     p Posted: #{post.meta.moment.fromNow()}
-    hr
+    hr.col-md-11
   p
     if blog.nextUrl
       a(href=blog.nextUrl) &laquo; Older Posts
