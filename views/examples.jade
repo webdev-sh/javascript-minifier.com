@@ -66,7 +66,13 @@ block content
         echo $minified;
     ?&gt;
 
+  p
+    | Also, Toni Almeida has made a PHP library to easily talk to JavaScript Minifier : 
+    a(href="https://github.com/promatik/PHP-JS-CSS-Minifier") https://github.com/promatik/PHP-JS-CSS-Minifier
+    | .
+
   h3.muted Perl
+  p Thanks to Boris Kotyrev (I've adapted what he sent to be more minimal) for this example.
   pre.
     use strict;
     use warnings;
@@ -88,11 +94,6 @@ block content
     }
 
     print minify($js, "\n");
-
-  p
-    | Also, Toni Almeida has made a PHP library to easily talk to JavaScript Minifier : 
-    a(href="https://github.com/promatik/PHP-JS-CSS-Minifier") https://github.com/promatik/PHP-JS-CSS-Minifier
-    | .
 
   h3.muted LWP Request
   pre.
