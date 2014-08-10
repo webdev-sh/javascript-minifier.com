@@ -13,7 +13,7 @@ var http = require('http');
 
 // ----------------------------------------------------------------------------
 
-var forks = process.env.NODE_ENV === 'production' ? 3 : 1;
+var forks = process.env.NODE_ENV === 'production' ? 2 : 1;
 var memUsageEverySecs = process.env.NODE_ENV === 'production' ? 10 * 60 : 10;
 var dieInSecs = process.env.NODE_ENV === 'production' ? 3600 + Math.floor(Math.random() * 1800) : 60 + Math.floor(Math.random() * 30);
 
