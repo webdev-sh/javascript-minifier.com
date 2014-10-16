@@ -32,9 +32,37 @@ curl        \
     http://cssminifier.com/raw > public/s/css/style.min.css
 echo
 
-# set up Proxie
-echo "Setting up Proxie ..."
-sudo cp etc/proxie.d/javascript-minifier-com /etc/proxie.d/
+
+# set up Nginx
+echo "Setting up Nginx ..."
+FILE=/tmp/com-javascript-minifier
+cat /dev/null > $FILE
+nginx-generator \
+    --name com-javascript-minifier \
+    --domain javascript-minifier.com \
+    --type proxy \
+    --var host=localhost \
+    --var port=8021 \
+    - >> $FILE
+nginx-generator \
+    --name com-javascript-minifier-www \
+    --domain www.javascript-minifier.com \
+    --type redirect \
+    --var to=javascript-minifier.com \
+    - >> $FILE
+nginx-generator \
+    --name com-javascript-minifier-ww \
+    --domain ww.javascript-minifier.com \
+    --type redirect \
+    --var to=javascript-minifier.com \
+    - >> $FILE
+nginx-generator \
+    --name com-javascript-minifier-w \
+    --domain w.javascript-minifier.com \
+    --type redirect \
+    --var to=javascript-minifier.com \
+    - >> $FILE
+sudo cp $FILE /etc/nginx/sites-enabled/
 echo
 
 # set up the server
