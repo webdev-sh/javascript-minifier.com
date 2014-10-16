@@ -67,23 +67,22 @@ echo
 
 # set up the server
 echo "Setting up various directories ..."
-sudo mkdir -p /var/log/javascript-minifier-com/
-sudo chown $THIS_USER:$THIS_GROUP /var/log/javascript-minifier-com/
+sudo mkdir -p /var/log/com-javascript-minifier/
+sudo chown $THIS_USER:$THIS_GROUP /var/log/com-javascript-minifier/
 echo
 
-# add the upstart scripts
-echo "Copying upstart script ..."
+# add the supervisor config
+echo "Copying supervisor config ..."
 m4 \
     -D __USER__=$THIS_USER \
+    -D  __PWD__=$THIS_PWD  \
     -D __NODE__=$THIS_NODE \
-    -D  __PWD__=$THIS_PWD   \
-    -D __NODE__=$THIS_NODE \
-    etc/init/javascript-minifier-com.conf.m4 | sudo tee /etc/init/javascript-minifier-com.conf
+    etc/supervisor/conf.d/com-javascript-minifier.conf.m4 | sudo tee /etc/supervisor/conf.d/com-javascript-minifier.conf
 echo
 
-# restart the service
-echo "Restarting service ..."
-sudo service javascript-minifier-com restart
+# restart services
+echo "Restarting services ..."
+sudo supervisorctl reload
 sudo service proxie restart
 echo
 

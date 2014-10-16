@@ -62,7 +62,7 @@ else {
     log('WORKER(%s,%s): Worker started', worker.id, process.pid);
 
     var app = require('./lib/app.js');
-    var port = process.argv[2] || 8021;
+    var port = 8021;
 
     var server = http.createServer();
     server.on('request', app);
