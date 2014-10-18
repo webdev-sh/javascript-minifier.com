@@ -1,4 +1,4 @@
-[program:com-cssminifier]
+[program:com-javascript-minifier]
 command = sudo -E -u chilts __NODE__ __PWD__/server.js
 directory = /home/chilts/src/chilts-javascript-minifier-com
 user = __USER__
