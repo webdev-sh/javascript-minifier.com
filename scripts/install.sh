@@ -63,6 +63,7 @@ nginx-generator \
     --var to=javascript-minifier.com \
     - >> $FILE
 sudo cp $FILE /etc/nginx/sites-enabled/
+rm -f $FILE
 echo
 
 # set up the server
