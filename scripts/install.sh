@@ -11,6 +11,10 @@ THIS_GROUP=`id -gn`
 THIS_PWD=`pwd`
 THIS_NODE=`which node`
 
+NAME=com-javascript-minifier
+NAKED_DOMAIN=javascript-minifier.com
+PORT=8021
+
 ## ----------------------------------------------------------------------------
 
 # install any required packages
@@ -32,35 +36,34 @@ curl        \
     http://cssminifier.com/raw > public/s/css/style.min.css
 echo
 
-
 # set up Nginx
 echo "Setting up Nginx ..."
-FILE=/tmp/com-javascript-minifier
+FILE=/tmp/$NAME
 cat /dev/null > $FILE
 nginx-generator \
-    --name com-javascript-minifier \
-    --domain javascript-minifier.com \
+    --name $NAME \
+    --domain $NAKED_DOMAIN \
     --type proxy \
     --var host=localhost \
-    --var port=8021 \
+    --var port=$PORT \
     - >> $FILE
 nginx-generator \
-    --name com-javascript-minifier-www \
-    --domain www.javascript-minifier.com \
+    --name $NAME-www \
+    --domain www.$NAKED_DOMAIN \
     --type redirect \
-    --var to=javascript-minifier.com \
+    --var to=$NAKED_DOMAIN \
     - >> $FILE
 nginx-generator \
-    --name com-javascript-minifier-ww \
-    --domain ww.javascript-minifier.com \
+    --name $NAME-ww \
+    --domain ww.$NAKED_DOMAIN \
     --type redirect \
-    --var to=javascript-minifier.com \
+    --var to=$NAKED_DOMAIN \
     - >> $FILE
 nginx-generator \
-    --name com-javascript-minifier-w \
-    --domain w.javascript-minifier.com \
+    --name $NAME-w \
+    --domain w.$NAKED_DOMAIN \
     --type redirect \
-    --var to=javascript-minifier.com \
+    --var to=$NAKED_DOMAIN \
     - >> $FILE
 sudo cp $FILE /etc/nginx/sites-enabled/
 rm -f $FILE
@@ -68,8 +71,8 @@ echo
 
 # set up the server
 echo "Setting up various directories ..."
-sudo mkdir -p /var/log/com-javascript-minifier/
-sudo chown $THIS_USER:$THIS_GROUP /var/log/com-javascript-minifier/
+sudo mkdir -p /var/log/$NAME/
+sudo chown $THIS_USER:$THIS_GROUP /var/log/$NAME/
 echo
 
 # add the supervisor config
@@ -78,13 +81,14 @@ m4 \
     -D __USER__=$THIS_USER \
     -D  __PWD__=$THIS_PWD  \
     -D __NODE__=$THIS_NODE \
-    etc/supervisor/conf.d/com-javascript-minifier.conf.m4 | sudo tee /etc/supervisor/conf.d/com-javascript-minifier.conf
+    -D __NAME__=$NAME      \
+    etc/supervisor/conf.d/$NAME.conf.m4 | sudo tee /etc/supervisor/conf.d/$NAME.conf
 echo
 
 # restart services
 echo "Restarting services ..."
 sudo supervisorctl reload
-sudo service proxie restart
+sudo service nginx restart
 echo
 
 ## ----------------------------------------------------------------------------
