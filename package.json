@@ -1,38 +1,23 @@
 {
-    "name" : "javascript-minifier-com",
-    "description" : "Minify your JavaScript",
-    "version" : "0.1.0",
-    "private" : true,
-
-    "dependencies" : {
-        "express"       : "3.4.x",
-        "jade"          : "1.1.x",
-        "connect-blog"  : "0.12.x",
-        "log2"          : "*",
-        "redis"         : "0.10.x",
-        "uglify-js"     : "2.4.x",
-        "moment"        : "*",
-        "rustle"        : "*"
-    },
-
-    "main": "app.js",
-    "author" : {
-        "name"  : "Andrew Chilton",
-        "email" : "chilts@appsattic.com",
-        "url"   : "http://chilts.org/blog/"
-    },
-    "homepage" : "https://github.com/appsattic/javascript-minifier-com/",
-    "repository" : {
-        "type" : "git",
-        "url"  : "git://github.com/appsattic/javascript-minifier-com.git"
-    },
-   "bugs" : {
-        "url" : "http://github.com/appsattic/javascript-minifier-com/issues"
-    },
-
-    "scripts": {
-        "start" : "node app.js"
-    },
-
-    "license": "Copyright 2013 Apps Attic Lts. All Rights Reserved."
+  "name": "com-javascript-minifier",
+  "description": "Minify your JavaScript",
+  "version": "0.3.0",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.9.2",
+    "compression": "^1.2.0",
+    "connect-blog": "0.12.x",
+    "connect-flake": "^0.1.2",
+    "errorhandler": "^1.2.2",
+    "express": "^4.10.1",
+    "jade": "^1.7.0",
+    "log2": "*",
+    "moment": "*",
+    "morgan": "^1.5.0",
+    "redis": "^0.12.1",
+    "rustle": "*",
+    "serve-favicon": "^2.1.6",
+    "uglify-js": "2.4.x"
+  },
+  "license": "Copyright 2013 Apps Attic Ltd. All Rights Reserved."
 }
