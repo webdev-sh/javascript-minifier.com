@@ -1,6 +1,6 @@
 [program:__NAME__]
 command = sudo -E -u chilts __NODE__ __PWD__/server.js
-directory = PWD__
+directory = __PWD__
 user = __USER__
 autostart = true
 autorestart = true
