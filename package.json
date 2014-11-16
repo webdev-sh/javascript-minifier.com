@@ -1,6 +1,6 @@
 {
   "name": "com-javascript-minifier",
-  "description": "Minify your JavaScript",
+  "description": "JavaScript Minifier/Compressor. Free! Provides an API. Simple Quick and Fast.",
   "version": "0.3.0",
   "private": true,
   "dependencies": {
