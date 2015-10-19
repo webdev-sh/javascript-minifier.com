@@ -1,10 +1,10 @@
 all:
 
 server:
-	DEBUG=blogz NODE_ENV=development supervisor --no-restart-on error -- server.js
+	DEBUG=blogz NODE_ENV=development supervisor --watch server.js,lib/ --no-restart-on error -- server.js
 
 server-prod:
-	NODE_ENV=production supervisor --no-restart-on error -- server.js
+	NODE_ENV=production supervisor --watch server.js,lib/ --no-restart-on error -- server.js
 
 test:
 	curl -X POST -s --data-urlencode 'input@test/simple.js' http://localhost:8021/raw > test/simple.min.js
