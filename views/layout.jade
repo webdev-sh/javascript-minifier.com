@@ -16,14 +16,14 @@ html(lang="en")
     title= title || blog.title
 
     // Bootstrap core CSS
-    link(href="//cdn.jsdelivr.net/bootstrap/3.1.0/css/bootstrap.min.css",rel="stylesheet")
+    link(href="https://cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.css",rel="stylesheet")
     // Custom styles for this template
     link(href="/s/css/style#{min}.css",rel="stylesheet")
 
     // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     | <!--[if lt IE 9]>
-    |   <script src="//cdn.jsdelivr.net/html5shiv/3.7.0/html5shiv.js"></script>
-    |   <script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    |   <script src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
+    |   <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
     | <![endif]-->
 
   body
@@ -106,6 +106,6 @@ html(lang="en")
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
         ga('create', 'UA-17218498-6', 'javascript-minifier.com'); ga('send', 'pageview');
 
-    script(src="//cdn.jsdelivr.net/jquery/1.11.0/jquery.min.js")
+    script(src="https://cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js")
     script(src="/s/js/ready#{min}.js")
     script(src="https://apis.google.com/js/platform.js",async,defer) {lang: 'en-GB'}
