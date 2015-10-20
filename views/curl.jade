@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h3.muted Curl
+  pre.
+    # minifying some JavaScript
+    curl -X POST -s --data-urlencode 'input=console.log( 1 );' http://javascript-minifier.com/raw
+
+    # minifying a JS file (e.g. ready.js -> ready.min.js)
+    curl -X POST -s --data-urlencode 'input@ready.js' http://javascript-minifier.com/raw > ready.min.js
+
+  include ./language-footer.jade

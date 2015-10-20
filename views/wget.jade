@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h3.muted Wget
+  pre.
+    # minifying some JavaScript
+    wget --post-data='input=console.log( 1 );' --output-document=- http://javascript-minifier.com/raw
+
+    # minifying a JS file (e.g. ready.js -> ready.min.js)
+    wget --post-data="input=`cat ready.js`" --output-document=ready.min.js http://javascript-minifier.com/raw
+
+  include ./language-footer.jade

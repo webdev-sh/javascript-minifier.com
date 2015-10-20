@@ -1,0 +1,12 @@
+extends layout
+
+block content
+
+  h3.muted LWP Request
+  pre.
+    $ lwp-request -m POST http://javascript-minifier.com/raw
+    Please enter content (application/x-www-form-urlencoded) to be POSTed:
+    input=console.log(%201%20)%3B
+    ^D
+
+  include ./language-footer.jade

@@ -28,17 +28,30 @@ block content
           div.actions
             button#select.btn(type="button",disabled="disabled") Select All
 
-  h2.muted API
+  include ./language-footer.jade
 
-  h3.muted General
+  h2.muted API - General
+
   p.
     To minify/compress your JavaScript perform a POST request to <code>http://javascript-minifier.com/raw</code> with the
     <code>input</code> parameter set to the JavaScript you want to minify.
   pre.
     POST http://javascript-minifier.com/raw?input=...
   p
-    | To see implementations in other languages see the 
-    a(href="/examples" ) Examples
+    | To see implementations in other languages see the Language Examples pages above.
+
+  h2.muted Plugins
+
+  p
+    | Many of our users have made plugins for various editors which are listed on the 
+    a(href="/plugins") plugins
+    |  page.
+
+  h2.muted Programs
+
+  p
+    | Lots of people are making little programs to use JavaScript Minifier - see the 
+    a(href="/programs") programs
     |  page.
 
   p (Ends)

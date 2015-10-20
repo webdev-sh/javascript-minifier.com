@@ -1,0 +1,72 @@
+extends layout
+
+block content
+
+  h3.muted C# Async Example
+
+  p Thanks to Dennis Janiak for contributing this example.
+
+  pre.
+    public static class JavaScripMinifier
+    {
+        private const string URL_JS_MINIFIER       = "http://javascript-minifier.com/raw";
+        private const string POST_PAREMETER_NAME    = "input";
+
+        public static async Task&lt;String&gt; MinifyJs(string inputJs)
+        {
+            List&lt;KeyValuePair&lt;String, String&gt;&gt; contentData = new List&lt;KeyValuePair&lt;String, String&gt;&gt;
+            {
+                new KeyValuePair&lt;String, String&gt;(POST_PAREMETER_NAME, inputJs)
+            };
+
+            using (HttpClient httpClient = new HttpClient())
+            {
+                using (FormUrlEncodedContent content = new FormUrlEncodedContent(contentData))
+                {
+                    using (HttpResponseMessage response = await httpClient.PostAsync(URL_JS_MINIFIER, content))
+                    {
+                        response.EnsureSuccessStatusCode();
+                        return await response.Content.ReadAsStringAsync();
+                    }
+                }
+            }
+        }
+    }
+ 
+  p Usage:
+
+  pre.
+    using (Task&lt;String&gt; task = JavaScriptMinifier.MinifyJs("/* comment */ console.log( 1 );   "))
+    {
+        task.Wait();
+        Console.WriteLine(task.Result); // input{font-size:9pt}
+    }
+
+  h3.muted C# Example
+
+  p Thanks to Juan Herrera for contributing this example.
+
+  pre.
+    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("http://javascript-minifier.com/raw");
+    request.Method = "POST";
+    string formContent = "input=" + jsContent.Text;
+    byte[] byteArray = Encoding.UTF8.GetBytes(formContent);
+    request.ContentType = "application/x-www-form-urlencoded";
+    request.ContentLength = byteArray.Length;
+
+    Stream str = request.GetRequestStream();
+    str.Write(byteArray, 0, byteArray.Length);
+    str.Close();
+
+    WebResponse response = request.GetResponse();
+    str = response.GetResponseStream();
+    if (str != null)
+    {
+      StreamReader reader = new StreamReader(str);
+      jsMinified.Text = reader.ReadToEnd();
+      reader.Close();
+      str.Close();
+    }
+    response.Close();
+
+  include ./language-footer.jade

@@ -1,0 +1,60 @@
+extends layout
+
+block content
+
+  h3.muted Python
+
+  p Credits: Thanks to Cristian Tomatis for contributing this example.
+
+  pre.
+    import requests
+
+    url = 'http://javascript-minifier.com/raw'
+    data = {'input': open('ready.js', 'rb').read()}
+    response = requests.post(url, data=data)
+
+    print response.text
+
+  h3.muted Python - from the REPL
+
+  p Credits: Thanks to Noam Yorav-Raphael for contributing this example.
+
+  pre.
+    >>> import requests
+    >>> requests.post('http://javascript-minifier.com/raw', data=dict(input='var a = 1;')).text
+    'var a=1;'
+
+  h3.muted Python - a CLI tool
+
+  p Credits: Thanks to Kyle S. for contributing this to the site.
+
+  pre.
+
+    # -*- coding: utf-8 -*-
+    import sys
+    import requests
+
+    try:
+        js_file = sys.argv[1]
+    except:
+        print("Missing input file")
+        sys.exit()
+
+    # Grab the file contents
+    with open(js_file, 'r') as c:
+        js = c.read()
+
+    # Pack it, ship it    
+    payload = {'input': js}
+    url = 'http://javascript-minifier.com/raw'
+    print("Requesting mini-me of {}. . .".format(c.name))
+    r = requests.post(url, payload)
+
+    # Write out minified version
+    minified = js_file.rstrip('.js')+'.min.js'
+    with open(minified, 'w') as m:
+        m.write(r.text)
+
+    print("Minification complete. See {}".format(m.name))
+
+  include ./language-footer.jade
