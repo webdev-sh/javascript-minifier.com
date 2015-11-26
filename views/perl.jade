@@ -17,7 +17,7 @@ block content
     sub minify{
         my ($js) = @_;
 
-        my $js_min_url = "http://javascript-minifier.com/raw";
+        my $js_min_url = "https://javascript-minifier.com/raw";
 
         my $ua = LWP::UserAgent->new;
         my $request = POST($js_min_url, [ 'input' => $js ]);
