@@ -51,7 +51,7 @@ html(lang="en")
             li
               p.navbar-text Our other services:
             li
-              a(href="http://cssminifier.com/") CSS Minifier
+              a(href="https://cssminifier.com/") CSS Minifier
             li
               a(href="http://img-resize.com/") Image Resize
             li
@@ -69,21 +69,12 @@ html(lang="en")
 
       .row
         .col-md-4
-          .row
-            .col-md-4
-              a.twitter-share-button(href="https://twitter.com/share",data-url="https://javascript-minifier.com/",data-text=pkg.description,data-via="andychilton") Tweet
-              script.
-                !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-            .col-md-4
-              #fb-root
-              .fb-like(style="font-size:1px;display:inline-block;",data-href="https://javascript-minifier.com/",data-layout="button_count",data-action="like",data-show-faces="false",data-share="false")
-              script.
-                (function(d, s, id) { var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) return;
-                js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.0";
-                fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));
-            .col-md-4
-              .g-plusone(style="font-size:1px;display:inline-block;",data-size="medium",data-href="https://javascript-minifier.com/")
-
+          p
+            | Written and hosted by 
+            a(href="https://chilts.org/") Andrew Chilton
+            |  (
+            a(href="https://twitter.com/andychilton") @andychilton
+            | ).
         .col-md-8.c
           p
             | #{ad.text1}
@@ -96,7 +87,7 @@ html(lang="en")
       div.container
         a(href="/") JavaScript Minifier
         |  - By 
-        a(href="http://chilts.org/") chilts
+        a(href="https://chilts.org/") chilts
         |  - 
         a(href="https://twitter.com/andychilton") @andychilton
 
@@ -110,4 +101,3 @@ html(lang="en")
 
     script(src="https://cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js")
     script(src="/s/js/ready#{min}.js")
-    script(src="https://apis.google.com/js/platform.js",async,defer) {lang: 'en-GB'}
