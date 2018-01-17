@@ -6,5 +6,5 @@ block blogcontent
 
   p
     for tagName in Object.keys(blog.tagged).sort()
-      a.btn(href="tag-#{tagName}") #{tagName} (#{blog.tagged[tagName].length})
+      a.btn(href=`tag-${tagName}`) #{tagName} (#{blog.tagged[tagName].length})
       |  

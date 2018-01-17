@@ -5,7 +5,7 @@ p Click on the language of your choice:
 .btn-group(role="group",aria-label="Language Examples Navigation")
   for pageName in Object.keys(page)
     |  
-    a.btn.btn-default(href="/#{pageName}") #{page[pageName].name}
+    a.btn.btn-default(href=`/${pageName}`)= page[pageName].name
 
 h3.muted More Languages
 

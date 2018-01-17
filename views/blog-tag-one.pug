@@ -7,4 +7,4 @@ block blogcontent
   ul
     for post in blog.thesePosts
       li #{post.meta.moment.format("DD MMM YYYY")} - 
-        a(href="./#{post.name}")= post.meta.title
+        a(href=`./#{post.name}`)= post.meta.title
