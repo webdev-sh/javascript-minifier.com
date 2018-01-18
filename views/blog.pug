@@ -10,7 +10,7 @@ block content
       ul
         for post in blog.latest
           li
-            a(href=post.name)= post.meta.title
+            a(href=post.name) #{post.meta.title}
 
       h2 Archive
       ul
@@ -25,8 +25,8 @@ block content
 
       h2 Tags
       p
-        for tagName in Object.keys(blog.tagged).sort()
-          a.btn.btn-default.btn-sm(href=`tag-${tagName}`) #{tagName} (#{blog.tagged[tagName].length})
+        for tagName in Object.keys(blog.tag).sort()
+          a.btn.btn-default.btn-sm(href=`tag-${tagName}`) #{tagName} (#{blog.tag[tagName].length})
           |  
 
       h2 Feeds
@@ -34,4 +34,6 @@ block content
         a(href="/blog/rss20.xml") RSS v2.0
         | , 
         a(href="/blog/atom.xml") Atom
+        | , 
+        a(href="/blog/feed.json") JSONFeed
         | .
