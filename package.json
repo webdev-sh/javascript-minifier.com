@@ -7,7 +7,6 @@
     "body-parser": "^1.18.2",
     "clean-css": "^3.4.28",
     "compression": "^1.7.1",
-    "connect-blog": "^1.6.0",
     "express": "^4.16.2",
     "logfmtr": "^1.0.1",
     "md5-file": "^3.2.3",
