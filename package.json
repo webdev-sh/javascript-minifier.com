@@ -19,5 +19,11 @@
     "uglify-js": "^3.3.7",
     "yid": "^1.0.0"
   },
-  "license": "Copyright 2013 Apps Attic Ltd. All Rights Reserved."
+  "author": {
+    "name": "Andrew Chilton",
+    "email": "andychilton@gmail.com",
+    "url": "http://chilts.org/blog/",
+    "twitter": "https://twitter.com/andychilton"
+  },
+  "license": "ISC"
 }
