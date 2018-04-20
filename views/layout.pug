@@ -27,6 +27,8 @@ html(lang="en")
     | <![endif]-->
 
   body
+    #banner(data-line-height="3")
+      a(href=`https://gitlab.com/webdev.sh/#{pkg.name}`) Code on GitLab
 
     .container
 
@@ -101,3 +103,4 @@ html(lang="en")
 
     script(src="https://cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js")
     script(src=`/s/js/ready${min}.js`)
+    script(src="https://banner.glitch.me/banner.js")
