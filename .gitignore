@@ -1,5 +1,5 @@
-public/s/css/style.min.css
-public/s/js/ready.min.js
+public/s/css/*.min.css
+public/s/js/*.min.js
 node_modules/
 npm-debug.log
 *~
