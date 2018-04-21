@@ -1,10 +1,23 @@
 // banner.js v1
 (function() {
 
+  // valid values
+  var valid = {
+    position : {
+      'top' : 'absolute',
+      'sticky' : 'fixed',
+    },
+  }
+
   // <div#banner>
   var banner = document.getElementById('banner');
 
-  banner.style.position = 'fixed';
+  // get the dataset to use
+  var dataset = banner.dataset;
+  // default some things
+  dataset.position = dataset.position || 'top'
+
+  banner.style.position = valid.position[dataset.position] || 'absolute';
   banner.style.top = '-70px';
   banner.style.right = '-70px';
   banner.style.width = '300px';
@@ -12,9 +25,6 @@
   banner.style['z-index'] = 9999;
   banner.style.display = 'flex';
   banner.style['align-items'] = 'center';
-
-  // get the dataset to use
-  var dataset = banner.dataset;
 
   // <a>
   var a = banner.firstElementChild;
