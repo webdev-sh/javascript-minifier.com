@@ -1,5 +1,6 @@
 public/s/css/*.min.css
 public/s/js/*.min.js
-node_modules/
-npm-debug.log
+
+/node_modules/
+*.log
 *~

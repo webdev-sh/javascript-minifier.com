@@ -27,8 +27,8 @@ html(lang="en")
     | <![endif]-->
 
   body
-    #banner(data-line-height="3")
-      a(href=`https://gitlab.com/webdev.sh/${pkg.name}`) Code on GitLab
+    #ribbon(data-line-height="3")
+      a(href=`https://gitlab.com/webdev.sh/${pkg.name}` target="_blank") Code on GitLab
 
     .container
 
@@ -72,9 +72,11 @@ html(lang="en")
       .row
         .col-md-4
           p
-            | Written and hosted by 
+            | Written and hosted by
+            |
             a(href="https://chilts.org/") Andrew Chilton
-            |  (
+            |
+            | (
             a(href="https://twitter.com/andychilton") @andychilton
             | ).
         .col-md-8.c
@@ -88,9 +90,13 @@ html(lang="en")
     div#footer
       div.container
         a(href="/") JavaScript Minifier
-        |  - By 
+        |
+        | - By
+        |
         a(href="https://chilts.org/") chilts
-        |  - 
+        |
+        | -
+        |
         a(href="https://twitter.com/andychilton") @andychilton
 
     if env === 'production'
@@ -103,4 +109,4 @@ html(lang="en")
 
     script(src="https://cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js")
     script(src=`/s/js/ready${min}.js`)
-    script(src=`/s/js/banner${min}.js`)
+    script(src=`https://webdev.sh/s/js/ribbon{min}.js`)
