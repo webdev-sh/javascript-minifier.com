@@ -16,7 +16,7 @@
     "redis": "^2.8.0",
     "rustle": "^0.3.1",
     "serve-favicon": "^2.4.5",
-    "uglify-js": "^3.3.7",
+    "terser": "^3.16.1",
     "yid": "^1.0.0"
   },
   "author": {

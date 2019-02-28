@@ -11,18 +11,14 @@
 // core
 const http = require('http')
 
-// npm
-const LogFmtr = require('logfmtr')
-
 // local
+const log = require('./lib/log.js')
 const app = require('./lib/app.js')
 
 // --------------------------------------------------------------------------------------------------------------------
 // setup
 
 process.title = 'javascript-minifier.com'
-
-const log = new LogFmtr()
 
 // every so often, print memory usage
 var memUsageEverySecs = process.env.NODE_ENV === 'production' ? 10 * 60 : 30
