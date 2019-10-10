@@ -14,7 +14,7 @@ block content
     var req = http.request(
         {
             method   : 'POST',
-            hostname : 'javascript-minifier.com',
+            hostname : '#{pkg.name}',
             path     : '/raw',
         },
         function(resp) {

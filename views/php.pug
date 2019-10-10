@@ -5,25 +5,27 @@ block content
   h3.muted PHP
   pre.
     &lt;?php
-        // setup the URL, the JavaScript and the form data
-        $url = 'https://javascript-minifier.com/raw';
-        $js = file_get_contents('./public/s/js/ready.js');
-        $data = array(
-            'input' =&gt; $js,
-        );
+        // setup the URL and read the JS from a file
+        $url = 'https://#{pkg.name}/raw';
+        $js = file_get_contents('ready.js');
 
-        // init the request, set some info, send it and finally close it
-        $ch = curl_init($url);
+        // init the request, set various options, and send it
+        $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt_array($ch, [
+            CURLOPT_URL =&gt; $url,
+            CURLOPT_RETURNTRANSFER =&gt; true,
+            CURLOPT_POST =&gt; true,
+            CURLOPT_HTTPHEADER =&gt; ["Content-Type: application/x-www-form-urlencoded"],
+            CURLOPT_POSTFIELDS =&gt; http_build_query([ "input" =&gt; $js ])
+        ]);
 
         $minified = curl_exec($ch);
 
+        // finally, close the request
         curl_close($ch);
 
-        // output the $minified
+        // output the $minified JavaScript
         echo $minified;
     ?&gt;
 

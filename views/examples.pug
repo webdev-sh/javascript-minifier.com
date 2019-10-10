@@ -4,10 +4,10 @@ block content
   h3.muted Curl
   pre.
     # minifying some JavaScript
-    curl -X POST -s --data-urlencode 'input=console.log( "Hi" );' https://javascript-minifier.com/raw
+    curl -X POST -s --data-urlencode 'input=console.log( "Hi" );' https://#{pkg.name}/raw
 
     # minifying a JavaScript file (e.g. ready.js -> ready.min.js)
-    curl -X POST -s --data-urlencode 'input@ready.js' https://javascript-minifier.com/raw > ready.min.js
+    curl -X POST -s --data-urlencode 'input@ready.js' https://#{pkg.name}/raw > ready.min.js
 
   h3.muted Node.js
   pre.
@@ -21,7 +21,7 @@ block content
     var req = http.request(
         {
             method   : 'POST',
-            hostname : 'javascript-minifier.com',
+            hostname : '#{pkg.name}',
             path     : '/raw',
         },
         function(resp) {
@@ -45,7 +45,7 @@ block content
   pre.
     &lt;?php
         // setup the URL, the JS and the form data
-        $url = 'https://javascript-minifier.com/raw';
+        $url = 'https://#{pkg.name}/raw';
         $js = file_get_contents('./public/ready.js');
         $data = array(
             'input' =&gt; $js
@@ -84,7 +84,7 @@ block content
     sub minify{
         my ($js) = @_;
 
-        my $js_min_url = "https://javascript-minifier.com/raw";
+        my $js_min_url = "https://#{pkg.name}/raw";
 
         my $ua = LWP::UserAgent->new;
         my $request = POST($js_min_url, [ 'input' => $js ]);
@@ -97,7 +97,7 @@ block content
 
   h3.muted LWP Request
   pre.
-    $ lwp-request -m POST https://javascript-minifier.com/raw
+    $ lwp-request -m POST https://#{pkg.name}/raw
     Please enter content (application/x-www-form-urlencoded) to be POSTed:
     input=console.log(%20'Hi'%20)
     ^D

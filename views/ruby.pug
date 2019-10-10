@@ -15,7 +15,7 @@ block content
     task :minify do
       js_file = "public/scripts/ready.js"
       js_min_file = "public/scripts/ready.min.js"
-      response = RestClient.post "https://javascript-minifier.com/raw", {:input => File.open(js_file).read}
+      response = RestClient.post "https://#{pkg.name}/raw", {:input => File.open(js_file).read}
       File.open(js_min_file, "w").write(response)
     end
 

@@ -4,9 +4,9 @@ block content
   h3.muted Curl
   pre.
     # minifying some JavaScript
-    curl -X POST -s --data-urlencode 'input=console.log( 1 );' https://javascript-minifier.com/raw
+    curl -X POST -s --data-urlencode 'input=console.log( 1 );' https://#{pkg.name}/raw
 
     # minifying a JS file (e.g. ready.js -> ready.min.js)
-    curl -X POST -s --data-urlencode 'input@ready.js' https://javascript-minifier.com/raw > ready.min.js
+    curl -X POST -s --data-urlencode 'input@ready.js' https://#{pkg.name}/raw > ready.min.js
 
   include ./language-footer

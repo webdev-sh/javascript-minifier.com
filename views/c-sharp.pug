@@ -9,7 +9,7 @@ block content
   pre.
     public static class JavaScripMinifier
     {
-        private const string URL_JS_MINIFIER       = "https://javascript-minifier.com/raw";
+        private const string URL_JS_MINIFIER       = "https://#{pkg.name}/raw";
         private const string POST_PAREMETER_NAME    = "input";
 
         public static async Task&lt;String&gt; MinifyJs(string inputJs)
@@ -47,7 +47,7 @@ block content
   p Thanks to Juan Herrera for contributing this example.
 
   pre.
-    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://javascript-minifier.com/raw");
+    HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://#{pkg.name}/raw");
     request.Method = "POST";
     string formContent = "input=" + jsContent.Text;
     byte[] byteArray = Encoding.UTF8.GetBytes(formContent);

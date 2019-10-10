@@ -1,5 +1,6 @@
 {
   "name": "javascript-minifier.com",
+  "title": "JavaScript Minifier",
   "description": "Online JavaScript Minifier/Compressor. Free! Provides an API. Simple Quick and Fast.",
   "version": "0.3.0",
   "private": true,
