@@ -6,11 +6,12 @@ test:
 	curl -X POST -s --data-urlencode 'input@test/large.js'  http://localhost:8021/raw > test/large.min.js
 
 test-remote:
-	curl -X POST -s --data-urlencode 'input@test/simple.js' http://javascript-minifier.com/raw > test/simple.min.js
-	curl -X POST -s --data-urlencode 'input@test/jquery.js' http://javascript-minifier.com/raw > test/jquery.min.js
-	curl -X POST -s --data-urlencode 'input@test/large.js'  http://javascript-minifier.com/raw > test/large.min.js
+	curl -X POST -s --data-urlencode 'input@test/simple.js' https://javascript-minifier.com/raw > test/simple.min.js
+	curl -X POST -s --data-urlencode 'input@test/jquery.js' https://javascript-minifier.com/raw > test/jquery.min.js
+	curl -X POST -s --data-urlencode 'input@test/large.js'  https://javascript-minifier.com/raw > test/large.min.js
 
 build:
 	cleancss -o public/s/css/main.min.css public/s/css/main.css
+	curl -X POST -s --data-urlencode 'input@public/s/js/main.js'  https://javascript-minifier.com/raw > public/s/js/main.min.js
 
 .PHONY: server test clean
