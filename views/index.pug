@@ -1,57 +1,56 @@
 extends layout
 
 block content
-  div.row
-    div.col-md-6
-      h3.muted Input JavaScript
-      form#input-form.form-stacked(method="post", name="f", action="/minify")
+  div.flex.flex-wrap
+    div.p-4(class="w-1/2")
+      h3 Input JavaScript
+      form#input-form(v-on:submit.prevent="onSubmit" method="post" name="f" :action="action")
         fieldset
-          div.clearfix
+          div
             div.input
-              textarea#input.col-md-12(name="input",rows="15",wrap="off",autofocus="autofocus",spellcheck="false")
-          div.actions
-            button#minify.btn.btn-primary(type="submit") Minify
-            |  
-            button#download.btn(type="button",disabled="disabled") Download as File
-            |  
-            button#raw.btn(type="button",disabled="disabled") RAW
-            |  
-            input#clear.btn(type="reset",value="Clear")
+              textarea#input.w-full.border(name="input" rows="15" wrap="off" autofocus="autofocus" spellcheck="false" v-model="input")
+          div.py-4
+            button#minify.btn.btn-primary(type="submit" :disabled="!isFormEnabled") Minify
+            button#download.btn.btn-secondary(type="button" :disabled="!isFormEnabled" @click="onDownload") Download as File
+            button#raw.btn.btn-secondary(type="button" :disabled="!isFormEnabled" @click="onRaw") RAW
+            input#clear.btn.btn-secondary(type="button" value="Clear" :disabled="!isFormEnabled" @click="onClear")
 
-    div.col-md-6
-      h3.muted Minified Output
-      form#output-form.form-stacked(name="f")
+    div.p-4(class="w-1/2")
+      h3 Minified Output
+      form#output-form(name="f")
         fieldset
-          div.clearfix
+          div
             div.input
-              textarea#output.col-md-12(name="output",rows="15",wrap="soft",disabled="disabled")
-          div.actions
-            button#select.btn(type="button",disabled="disabled") Select All
+              textarea#output.w-full.border(name="output" rows="15" wrap="soft" :disabled="!output" v-model="output")
+          div.py-4
+            button#copy.btn.btn-secondary(type="button" :disabled="!output" @click="onCopyToClipboard") Copy to Clipboard
+            button#select.btn.btn-secondary(type="button" :disabled="!output" @click="onSelectAll") Select All
 
-  include ./language-footer
+  h2 Languages
 
-  h2.muted API - General
+  include ./include/languages.pug
 
-  p.
-    To minify/compress your JavaScript perform a POST request to <code>https://#{pkg.name}/raw</code> with the
-    <code>input</code> parameter set to the JavaScript you want to minify.
-  pre.
-    POST https://#{pkg.name}/raw?input=...
-  p
-    | To see implementations in other languages see the Language Examples pages above.
-
-  h2.muted Plugins
-
-  p
-    | Many of our users have made plugins for various editors which are listed on the 
-    a(href="/plugins") plugins
-    |  page.
-
-  h2.muted Programs
-
-  p
-    | Lots of people are making little programs to use JavaScript Minifier - see the 
-    a(href="/programs") programs
-    |  page.
+  .flex.flex-wrap(role="group" aria-label="Plugins and Programs")
+    div.pr-8(class="w-1/2")
+      h2 Plugins
+      include ./include/plugins.pug
+    div.pr-8(class="w-1/2")
+      h2 Programs
+      include ./include/programs.pug
 
   p (Ends)
+
+  script(
+    src=`https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js`
+    integrity="sha256-chlNFSVx3TdcQ2Xlw7SvnbLAavAQLO0Y/LBiWX04viY="
+    crossorigin="anonymous"
+  )
+  script(
+    src=`https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js`
+    integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ="
+    crossorigin="anonymous"
+  )
+  script(
+    src="/s/js/copy-to-clipboard.min.js"
+  )
+  script(src=`/s/js/main${env.min}.js`)

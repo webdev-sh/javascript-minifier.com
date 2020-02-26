@@ -1,0 +1,22 @@
+p Many people have sent language examples over the years, but
+  |
+  |
+  strong we want more!
+  |
+  |
+  | We'd love to add more examples in your favourite programming language, so please send them our way.
+  | Email andychilton at that gmail place in the sky, tweet me
+  |
+  a(href="https://twitter.com/andychilton") @andychilton
+  | , or open an issue or PR on
+  |
+  a(href="https://github.com/webdev-sh/javascript-minifier.com") webdev-sh/javascript-minfier.com
+  | .
+
+p Click on the language of your choice to see an example:
+
+.flex.flex-wrap(role="group" aria-label="Language Examples Navigation")
+  for pageName in Object.keys(page)
+    div(class="w-1/3")
+      h4
+        a.btn.btn-default.block.m-4.p-4.bg-teal-400.text-center.text-white(href=`/${pageName}`)= page[pageName].name

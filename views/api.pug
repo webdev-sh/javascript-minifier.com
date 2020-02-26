@@ -1,0 +1,28 @@
+extends layout
+
+block content
+
+  h3 API
+
+  p.
+    To minify/compress your JS perform a POST request to <code>#{env.baseUrl}/raw</code> with the
+    <code>input</code> parameter set to the JavaScript you want to minify.
+
+  h4 wget
+  pre.
+    wget --post-data='input=console.log( 1 );' --output-document=- #{env.baseUrl}/raw
+    wget --post-data="input=`cat main.js`" --output-document=main.min.js #{env.baseUrl}/raw
+
+  h4 curl
+  pre.
+    curl -X POST -s --data-urlencode 'input=console.log( 1 );' #{env.baseUrl}/raw
+    curl -X POST -s --data-urlencode 'input@main.js' #{env.baseUrl}/raw > main.min.js
+
+  h4 POST
+  pre.
+    POST #{env.baseUrl}/raw?input=...
+
+  p
+    | To see implementations in other languages see the other Language Examples pages below.
+
+  include ./include/languages.pug

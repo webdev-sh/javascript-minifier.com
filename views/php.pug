@@ -6,7 +6,7 @@ block content
   pre.
     &lt;?php
         // setup the URL and read the JS from a file
-        $url = 'https://#{pkg.name}/raw';
+        $url = '#{env.baseUrl}/raw';
         $js = file_get_contents('ready.js');
 
         // init the request, set various options, and send it
@@ -30,9 +30,10 @@ block content
     ?&gt;
 
   p
-    | Also, Toni Almeida has made a PHP library to easily talk to JavaScript Minifier : 
+    | Also, Toni Almeida has made a PHP library to easily talk to JavaScript Minifier :
+    |
     a(href="https://github.com/promatik/PHP-JS-CSS-Minifier") https://github.com/promatik/PHP-JS-CSS-Minifier
     | .
 
-  include ./language-footer
+  include ./include/languages.pug
 

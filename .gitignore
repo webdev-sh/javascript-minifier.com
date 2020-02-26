@@ -1,3 +1,5 @@
+.envrc
+
 public/s/css/*.min.css
 public/s/js/*.min.js
 

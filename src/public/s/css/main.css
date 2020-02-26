@@ -1,0 +1,183 @@
+/* ------------------------------------------------------------------------- */
+/* From : https://tailwindcss.com/docs/functions-and-directives#tailwind */
+
+/* purgecss start ignore */
+
+/**
+ * This injects Tailwind's base styles and any base styles registered by
+ * plugins.
+ */
+@tailwind base;
+
+/**
+ * This injects Tailwind's component classes and any component classes
+ * registered by plugins.
+ */
+@tailwind components;
+
+/* purgecss end ignore */
+
+/* ------------------------------------------------------------------------- */
+/* Components */
+/* https://tailwindcss.com/docs/extracting-components#extracting-css-components-with-apply */
+
+body {
+    @apply bg-gray-100 leading-normal tracking-normal text-gray-800 font-sans;
+    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply mt-0 mb-3 font-serif;
+    font-family: Raleway, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+h1 {
+    @apply text-5xl;
+}
+
+h2 {
+    @apply text-4xl;
+}
+
+h3 {
+    @apply text-3xl;
+}
+
+h4 {
+    @apply text-2xl;
+}
+
+h5 {
+    @apply text-xl;
+}
+
+h6 {
+    @apply text-lg;
+}
+
+p, pre, blockquote {
+    @apply mb-4;
+}
+
+a {
+    @apply text-blue-600;
+}
+
+pre {
+    @apply p-6 border-gray-800 bg-gray-300;
+}
+
+code {
+    @apply border border-teal-300 bg-teal-100 px-2;
+}
+
+/* Buttons */
+
+.btn {
+    @apply font-bold py-2 px-4 rounded mr-1;
+}
+
+.btn-primary {
+    @apply bg-blue-500 text-white;
+}
+
+.btn-primary:hover {
+    @apply bg-blue-700;
+}
+
+.btn-secondary {
+    @apply bg-teal-500 text-white;
+}
+
+.btn-secondary:hover {
+    @apply bg-teal-700;
+}
+
+.btn:disabled, .btn-primary:hover:disabled, .btn-secondary:hover:disabled {
+    @apply text-gray-700 bg-gray-300 cursor-not-allowed;
+}
+
+/* Vue.js */
+
+[v-cloak] {
+    display: none;
+}
+
+/* Ads */
+
+#carbonads {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: flex;
+  max-width: 330px;
+  background-color: hsl(0, 0%, 98%);
+  box-shadow: 0 1px 4px 1px hsla(0, 0%, 0%, .1);
+  @apply p-4;
+}
+
+#carbonads a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#carbonads a:hover {
+  color: inherit;
+}
+
+#carbonads span {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+#carbonads .carbon-wrap {
+  display: flex;
+}
+
+.carbon-img {
+  display: block;
+  margin: 0;
+  line-height: 1;
+}
+
+.carbon-img img {
+  display: block;
+}
+
+.carbon-text {
+  font-size: 13px;
+  padding: 10px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.carbon-poweredby {
+  display: block;
+  padding: 8px 10px;
+  background: repeating-linear-gradient(-45deg, transparent, transparent 5px, hsla(0, 0%, 0%, .025) 5px, hsla(0, 0%, 0%, .025) 10px) hsla(203, 11%, 95%, .4);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  font-weight: 600;
+  font-size: 9px;
+  line-height: 1;
+}
+
+/* ------------------------------------------------------------------------- */
+/* From : https://tailwindcss.com/docs/functions-and-directives#tailwind */
+
+/**
+ * This injects Tailwind's utility classes and any utility classes registered
+ * by plugins.
+ */
+@tailwind utilities;
+
+/**
+ * Use this directive to control where Tailwind injects the responsive
+ * variations of each utility.
+ *
+ * If omitted, Tailwind will append these classes to the very end of
+ * your stylesheet by default.
+ */
+@tailwind screens;
+
+/* ------------------------------------------------------------------------- */

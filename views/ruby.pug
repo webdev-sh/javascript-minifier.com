@@ -4,7 +4,8 @@ block content
 
   h3.muted Ruby
 
-  p Thanks to 
+  p Thanks to
+    |
     a(href="https://github.com/jcron",target="_new") Jeremy Cron
     |  for contributing this example.
 
@@ -15,8 +16,8 @@ block content
     task :minify do
       js_file = "public/scripts/ready.js"
       js_min_file = "public/scripts/ready.min.js"
-      response = RestClient.post "https://#{pkg.name}/raw", {:input => File.open(js_file).read}
+      response = RestClient.post "#{env.baseUrl}/raw", {:input => File.open(js_file).read}
       File.open(js_min_file, "w").write(response)
     end
 
-  include ./language-footer
+  include ./include/languages.pug

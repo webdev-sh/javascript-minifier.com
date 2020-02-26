@@ -1,2 +1,3 @@
-port: 8021
-apex: javascript-minifier.com
+GOOGLE_ANALYTICS: ?
+CARBON_SERVE: ?
+CARBON_PLACEMENT: ?

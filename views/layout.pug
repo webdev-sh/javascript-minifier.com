@@ -6,95 +6,64 @@ html(lang="en")
     meta(name="viewport",content="width=device-width, initial-scale=1.0")
     meta(
       name="description",
-      content="JavaScript Minifier/Compressor. Provides an API. Simple Quick and Fast!")
+      content=pkg.description
+    )
     meta(
       name="keywords",
-      content="javascript, js, minifier, javascript minifier, compress, compressor, minify javascript, web, html")
+      content=pkg.keywords
+    )
     meta(name="author",content="Andrew Chilton, @andychilton")
     link(rel="shortcut icon",href="/favicon.ico")
 
     title= title
 
-    // Bootstrap core CSS
-    link(href="https://cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.css",rel="stylesheet")
-    // Custom styles for this template
-    link(href=`/s/css/style${min}.css`,rel="stylesheet")
+    link(
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    )
+    link(
+      href="https://fonts.googleapis.com/css?family=Raleway:500|Source+Sans+Pro"
+      rel="stylesheet"
+    )
+    link(
+      href=`/s/css/main${env.min}.css`
+      rel="stylesheet"
+    )
 
-    // HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
-    | <!--[if lt IE 9]>
-    |   <script src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script>
-    |   <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
-    | <![endif]-->
+    if env.nodeEnv === 'production' && env.googleAnalytics
+      // Global site tag (gtag.js) - Google Analytics
+      script(async="" src=`https://www.googletagmanager.com/gtag/js?id=${env.googleAnalytics}`)
+      script.
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date()); gtag('config', '#{env.googleAnalytics}');
 
   body
 
-    .container
+    include ./include/nav.pug
+    include ./include/digital-ocean.pug
 
-      // Static navbar
-      .navbar.navbar-default(role="navigation")
-        .navbar-header
-          button.navbar-toggle(type="button",data-toggle="collapse",data-target=".navbar-collapse")
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href="/") #{pkg.name}
-        .collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li
-              a(href="/plugins") Plugins
-            li
-              a(href="/programs") Programs
-            li
-              a(href="https://webdev.sh/blog/category-javascript-minifier") Blog
-          ul.nav.navbar-nav.navbar-right
-            li
-              p.navbar-text Our other services:
-            li
-              a(href="https://cssminifier.com/") CSS Minifier
-            li
-              a(href="http://img-resize.com/") Image Resize
-            li
-              a(href="http://pngcrush.com/") PNG Crush
-            li
-              a(href="http://jpgoptimiser.com/") JPG Optimiser
+    .container.mx-auto
 
-      #ads.row
-        .col-md-4
-          h1 Minify your JavaScript
-          p= pkg.description
-          p
-            | Written and hosted by
-            |
-            a(href="https://chilts.org/") Andrew Chilton
-            |
-            | (
-            a(href="https://twitter.com/andychilton") @andychilton
-            | ).
-        .col-md-8.c
-          script(async type="text/javascript" src="//cdn.carbonads.com/carbon.js?serve=CK7D62QW&placement=javascript-minifiercom" id="_carbonads_js")
+      .flex.justify-between
+        div
+          h1= pkg.title
+          h3= pkg.description
+          p Written and hosted by <a href="https://chilts.org/">Andrew Chilton</a> (<a href="https://twitter.com/andychilton">@andychilton</a>) since 2012.
+        div.p-6
+          if env.nodeEnv === 'production' && env.carbonServe && env.carbonPlacement
+            script(
+              async
+              type="text/javascript"
+              src=`//cdn.carbonads.com/carbon.js?serve=${env.carbonServe}&placement=${env.carbonPlacement}`
+              id="_carbonads_js"
+            )
+          else
+            p No ads in <code>#{env.nodeEnv}</code>.
 
-      block content
+      #app
+        block content
 
-    div#footer
-      div.container
-        a(href="/") JavaScript Minifier
-        |
-        | - By
-        |
-        a(href="https://chilts.org/") chilts
-        |
-        | -
-        |
-        a(href="https://twitter.com/andychilton") @andychilton
-
-    if env === 'production'
-      script(type="text/javascript").
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-17218498-6', '#{pkg.name}'); ga('send', 'pageview');
-
-    script(src="https://cdn.jsdelivr.net/jquery/1.11.3/jquery.min.js")
-    script(src=`/s/js/ready${min}.js`)
+    include ./include/footer.pug

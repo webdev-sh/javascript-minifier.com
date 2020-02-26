@@ -7,7 +7,7 @@ block content
   p Thanks to Cleber Muramoto for this contribution.
 
   pre.
-    final URL url = new URL("https://#{pkg.name}/raw");
+    final URL url = new URL("#{env.baseUrl}/raw");
 
     // JS File you want to compress
     byte[] bytes = Files.readAllBytes(Paths.get(...));
@@ -50,4 +50,4 @@ block content
         System.out.println("Oops");
     }
 
-  include ./language-footer
+  include ./include/languages.pug

@@ -2,23 +2,44 @@
   "name": "javascript-minifier.com",
   "title": "JavaScript Minifier",
   "description": "Online JavaScript Minifier/Compressor. Free! Provides an API. Simple Quick and Fast.",
+  "description2": "Uses Terser for minification (not UglifyJS) and therefore supports ES6+ syntax.",
   "version": "0.3.0",
   "private": true,
+  "homepage": "https://javascript-minifier.com",
+  "bugs": {
+    "url": "https://github.com/webdev-sh/javascript-.com/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/webdev-sh/javascript-.com.git"
+  },
+  "scripts": {
+    "dev": "nodemon server.js",
+    "build": "npm run tailwind && make build",
+    "tailwind": "tailwind build src/public/s/css/main.css --output public/s/css/main.css",
+    "test": "standard"
+  },
   "dependencies": {
-    "body-parser": "^1.18.2",
-    "clean-css": "^3.4.28",
-    "compression": "^1.7.1",
-    "express": "^4.16.2",
-    "logfmtr": "^1.0.1",
+    "body-parser": "^1.19.0",
+    "compression": "^1.7.4",
+    "connect-content": "^0.8.0",
+    "express": "^4.17.1",
+    "logfmtr": "^1.10.1",
     "md5-file": "^3.2.3",
-    "moment": "^2.20.1",
-    "morgan": "^1.9.0",
-    "pug": "^2.0.0-rc.4",
+    "moment": "^2.24.0",
+    "morgan": "^1.9.1",
+    "ms": "^2.1.2",
+    "pug": "^2.0.4",
     "redis": "^2.8.0",
     "rustle": "^0.3.1",
-    "serve-favicon": "^2.4.5",
-    "terser": "^3.16.1",
-    "yid": "^1.0.0"
+    "serve-favicon": "^2.5.0",
+    "terser": "^3.17.0",
+    "yid": "^1.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "standard": "^14.3.1",
+    "tailwindcss": "^1.2.0"
   },
   "author": {
     "name": "Andrew Chilton",
@@ -26,5 +47,16 @@
     "url": "https://chilts.org/",
     "twitter": "https://twitter.com/andychilton"
   },
-  "license": "ISC"
+  "keywords": [
+    "javascript",
+    "js",
+    "minifier",
+    "javascript minifier",
+    "compress",
+    "compressor",
+    "minify javascript",
+    "web",
+    "html"
+  ],
+  "license": "Apache-2.0"
 }

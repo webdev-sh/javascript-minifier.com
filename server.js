@@ -1,39 +1,35 @@
-// --------------------------------------------------------------------------------------------------------------------
-//
-// server.js - the server for javascript-minifier.com
-//
-// Copyright 2013 AppsAttic Ltd, http://appsattic.com/
-//
-// --------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 
 "use strict"
 
 // core
 const http = require('http')
+const ms = require('ms')
 
 // local
+const pkg = require('./lib/pkg.js')
 const log = require('./lib/log.js')
 const app = require('./lib/app.js')
 
-// --------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 // setup
 
-process.title = 'javascript-minifier.com'
+process.title = pkg.name
 
 // every so often, print memory usage
-var memUsageEverySecs = process.env.NODE_ENV === 'production' ? 10 * 60 : 30
+var memUsageEveryMs = process.env.NODE_ENV === 'production' ? ms('10 mins') : ms('30s')
 setInterval(() => {
   log.withFields(process.memoryUsage()).debug('memory')
-}, memUsageEverySecs * 1000)
+}, memUsageEveryMs)
 
-// --------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------
 // server
 
 const server = http.createServer()
 server.on('request', app)
 
 const port = process.env.PORT || 8021
-server.listen(port, function() {
+server.listen(port, () => {
   log.withFields({ port }).info('server-started')
 })
 
@@ -45,4 +41,4 @@ process.on('SIGTERM', () => {
   })
 })
 
-// --------------------------------------------------------------------------------------------------------------------
+// ----------------------------------------------------------------------------

@@ -9,7 +9,7 @@ block content
   pre.
     import requests
 
-    url = 'https://#{pkg.name}/raw'
+    url = '#{env.baseUrl}/raw'
     data = {'input': open('ready.js', 'rb').read()}
     response = requests.post(url, data=data)
 
@@ -21,7 +21,7 @@ block content
 
   pre.
     >>> import requests
-    >>> requests.post('https://#{pkg.name}/raw', data=dict(input='var a = 1;')).text
+    >>> requests.post('#{env.baseUrl}/raw', data=dict(input='var a = 1;')).text
     'var a=1;'
 
   h3.muted Python - a CLI tool
@@ -44,9 +44,9 @@ block content
     with open(js_file, 'r') as c:
         js = c.read()
 
-    # Pack it, ship it    
+    # Pack it, ship it
     payload = {'input': js}
-    url = 'https://#{pkg.name}/raw'
+    url = '#{env.baseUrl}/raw'
     print("Requesting mini-me of {}. . .".format(c.name))
     r = requests.post(url, payload)
 
@@ -57,4 +57,4 @@ block content
 
     print("Minification complete. See {}".format(m.name))
 
-  include ./language-footer
+  include ./include/languages.pug

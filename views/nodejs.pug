@@ -4,34 +4,34 @@ block content
 
   h3.muted Node.js
   pre.
-    var querystring = require('querystring');
-    var http  = require('http');
+    const querystring = require('querystring');
+    const https  = require('https');
 
-    var query = querystring.stringify({
-        input : js
+    const query = querystring.stringify({
+      input : 'console.log( 1 );',
     });
 
-    var req = http.request(
-        {
-            method   : 'POST',
-            hostname : '#{pkg.name}',
-            path     : '/raw',
-        },
-        function(resp) {
-            // if the statusCode isn't what we expect, get out of here
-            if ( resp.statusCode !== 200 ) {
-                console.log('StatusCode=' + resp.statusCode);
-                return;
-            }
-
-            resp.pipe(process.stdout);
+    const req = https.request(
+      {
+        method   : 'POST',
+        hostname : '#{env.apex}',
+        path     : '/raw',
+      },
+      function(resp) {
+        // if the statusCode isn't what we expect, get out of here
+        if ( resp.statusCode !== 200 ) {
+          console.log('StatusCode=' + resp.statusCode);
+          return;
         }
+
+        resp.pipe(process.stdout);
+      }
     );
     req.on('error', function(err) {
-        throw err;
+      throw err;
     });
     req.setHeader('Content-Type', 'application/x-www-form-urlencoded');
     req.setHeader('Content-Length', query.length);
     req.end(query, 'utf8');
 
-  include ./language-footer
+  include ./include/languages.pug

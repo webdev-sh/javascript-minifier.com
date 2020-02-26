@@ -4,9 +4,9 @@ block content
   h3.muted Wget
   pre.
     # minifying some JavaScript
-    wget --post-data='input=console.log( 1 );' --output-document=- https://#{pkg.name}/raw
+    wget --post-data='input=console.log( 1 );' --output-document=- #{env.baseUrl}/raw
 
     # minifying a JS file (e.g. ready.js -> ready.min.js)
-    wget --post-data="input=`cat ready.js`" --output-document=ready.min.js https://#{pkg.name}/raw
+    wget --post-data="input=`cat ready.js`" --output-document=ready.min.js #{env.baseUrl}/raw
 
-  include ./language-footer
+  include ./include/languages.pug

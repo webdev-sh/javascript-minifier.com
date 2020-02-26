@@ -1,0 +1,24 @@
+nav.flex.items-center.justify-between.flex-wrap.bg-teal-500.p-6
+
+  .flex.items-center.flex-no-shrink.text-white.mr-6
+    span.text-3xl.mx-2.fa.fa-globe
+    a.font-semibold.text-xl.tracking-tight.text-white(href="/")= pkg.title
+
+  .block(class="lg:hidden")
+    button.flex.items-center.px-3.py-2.border.rounded.text-teal-lighter.border-teal-light(class="hover:text-white hover:border-white")
+      svg.fill-current.h-3.w-3(viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg")
+        title Menu
+        path(d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z")
+
+  .w-full.block.flex-grow(class="lg:flex lg:items-center lg:w-auto")
+    div(class="lg:flex-grow")
+      a.block.mt-4.text-white.mr-4(href="/api" class="lg:inline-block lg:mt-0 hover:text-teal-darker")
+        | API
+      a.block.mt-4.text-white.mr-4(href="/languages" class="lg:inline-block lg:mt-0 hover:text-teal-darker")
+        | Languages
+      a.block.mt-4.text-white(href="https://webdev.sh/blog/category-javascript-minifier" target="_blank" class="lg:inline-block lg:mt-0 hover:text-teal-darker")
+        | Blog
+    div
+      a.block.mt-4.text-white.mr-4.fab.fa-github(href=`https://github.com/webdev-sh/${pkg.name}` class="lg:inline-block lg:mt-0 hover:text-teal-darker")
+      a.block.mt-4.text-white.mr-4.fab.fa-twitter(href="https://twitter.com/WebDevSH" class="lg:inline-block lg:mt-0 hover:text-teal-darker")
+      a.block.mt-4.text-white.fas.fa-globe(href="https://webdev.sh" class="lg:inline-block lg:mt-0 hover:text-teal-darker")
