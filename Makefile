@@ -15,8 +15,4 @@ test-remote:
 	curl -X POST -s --data-urlencode 'input@test/jquery.js' https://javascript-minifier.com/raw > test/jquery.min.js
 	curl -X POST -s --data-urlencode 'input@test/large.js'  https://javascript-minifier.com/raw > test/large.min.js
 
-build:
-	cleancss -o public/s/css/main.min.css public/s/css/main.css
-	curl -X POST -s --data-urlencode 'input@public/s/js/main.js'  https://javascript-minifier.com/raw > public/s/js/main.min.js
-
 .PHONY: server test clean
