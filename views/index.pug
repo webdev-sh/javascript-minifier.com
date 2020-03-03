@@ -2,7 +2,7 @@ extends layout
 
 block content
   div.flex.flex-wrap
-    div.p-4(class="w-1/2")
+    div.p-4(class="w-full lg:w-1/2")
       h3 Input JavaScript
       form#input-form(v-on:submit.prevent="onSubmit" method="post" name="f" :action="action")
         fieldset
@@ -15,7 +15,7 @@ block content
             button#raw.btn.btn-secondary(type="button" :disabled="!isFormEnabled" @click="onRaw") RAW
             input#clear.btn.btn-secondary(type="button" value="Clear" :disabled="!isFormEnabled" @click="onClear")
 
-    div.p-4(class="w-1/2")
+    div.p-4(class="w-full lg:w-1/2")
       h3 Minified Output
       form#output-form(name="f")
         fieldset
@@ -31,10 +31,10 @@ block content
   include ./include/languages.pug
 
   .flex.flex-wrap(role="group" aria-label="Plugins and Programs")
-    div.pr-8(class="w-1/2")
+    div.pr-8(class="w-full lg:w-1/2")
       h2 Plugins
       include ./include/plugins.pug
-    div.pr-8(class="w-1/2")
+    div.pr-8(class="w-full lg:w-1/2")
       h2 Programs
       include ./include/programs.pug
 

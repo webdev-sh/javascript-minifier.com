@@ -14,8 +14,10 @@
     "url": "https://github.com/webdev-sh/javascript-.com.git"
   },
   "scripts": {
-    "dev": "nodemon server.js",
-    "build": "npm run tailwind && make build",
+    "dev": "concurrently --names 'server,tailwind' npm:dev-server npm:dev-tailwind",
+    "dev-server": "nodemon server.js",
+    "dev-tailwind": "nodemon --watch src/public/s/css/main.css --watch tailwind.config.js --exec 'npm run tailwind'",
+    "build": "npm run tailwind",
     "tailwind": "tailwind build src/public/s/css/main.css --output public/s/css/main.css",
     "test": "standard"
   },
@@ -37,9 +39,15 @@
     "yid": "^1.1.0"
   },
   "devDependencies": {
+    "concurrently": "^5.1.0",
     "nodemon": "^2.0.2",
     "standard": "^14.3.1",
     "tailwindcss": "^1.2.0"
+  },
+  "standard": {
+    "ignore": [
+      "test/"
+    ]
   },
   "author": {
     "name": "Andrew Chilton",

@@ -59,16 +59,28 @@ p, pre, blockquote {
     @apply mb-4;
 }
 
+blockquote {
+    @apply mb-4 bg-teal-200 border-0 border-l-4 border-teal-300 p-4;
+}
+
+blockquote p {
+    @apply mb-0;
+}
+
 a {
     @apply text-blue-600;
 }
 
 pre {
-    @apply p-6 border-gray-800 bg-gray-300;
+    @apply p-4 bg-gray-300 border-0 border-l-4 border-teal-300 overflow-x-auto;
 }
 
 code {
     @apply border border-teal-300 bg-teal-100 px-2;
+}
+
+pre code {
+    @apply border-0 bg-gray-300 px-0;
 }
 
 /* Buttons */

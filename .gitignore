@@ -1,6 +1,7 @@
 deployer/ENV_*
 .envrc
 
+public/s/css/main.css
 public/s/css/*.min.css
 public/s/js/*.min.js
 

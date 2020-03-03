@@ -10,13 +10,13 @@ p Many people have sent language examples over the years, but
   a(href="https://twitter.com/andychilton") @andychilton
   | , or open an issue or PR on
   |
-  a(href="https://github.com/webdev-sh/javascript-minifier.com") webdev-sh/javascript-minfier.com
+  a(href=env.codeHostingUrl) #{env.codeHostingOrg}/#{pkg.name}
   | .
 
 p Click on the language of your choice to see an example:
 
 .flex.flex-wrap(role="group" aria-label="Language Examples Navigation")
   for pageName in Object.keys(page)
-    div(class="w-1/3")
+    div(class="w-1/2 md:w-1/3 lg:w-1/4")
       h4
         a.btn.btn-default.block.m-4.p-4.bg-teal-400.text-center.text-white(href=`/${pageName}`)= page[pageName].name

@@ -1,4 +1,9 @@
-all:
+all: build
+
+build:
+	npm ci
+	npm run build
+	npm ci --production
 
 test:
 	curl -X POST -s --data-urlencode 'input@test/simple.js' http://localhost:8021/raw > test/simple.min.js
